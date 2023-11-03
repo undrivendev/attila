@@ -21,3 +21,10 @@ jobs:
         npm install
         npx grunt build
         npx grunt compress
+
+    - name: Deploy
+      uses: TryGhost/action-deploy-theme@v1
+      with:
+        api-url: ${{ secrets.GHOST_ADMIN_API_URL }}
+        api-key: ${{ secrets.GHOST_ADMIN_API_KEY }}
+        file: dist/attila.zip
